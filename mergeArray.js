@@ -1,0 +1,19 @@
+
+function merge(array1, array2) {
+  if (array1.constructor != Array && array2.constructor != Array) {
+    return undefined;
+  } else if (array1 !== undefined && array2 !== undefined){
+    for (var i = 0; i < array2.length; i++){
+      array1.push(array2[i]);
+    }
+    return array1.sort();
+  } else if (array1 !== undefined && array2 === undefined){
+    return array1.sort();
+  } else if (array1 === undefined && array2 !== undefined) {
+    return  array2.sort();
+  }
+}
+
+console.log(merge([ 4, 5, 6 ], [ 1, 2, 3, 4 ]), "=?", [ 1, 2, 3, 4, 4, 5, 6 ]);
+console.log(merge([ 4 ], [ 2, 5, 8 ]), "=?", [ 2, 4, 5, 8 ]);
+console.log(merge([ 1, 2, 6 ], []), "=?", [ 1, 2, 6 ]);
